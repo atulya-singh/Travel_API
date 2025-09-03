@@ -15,7 +15,7 @@ RequestPOST/trips:
 {
   "destination": "Rome",
   "date": "2024-07-01",
-  "TripDaysDuration": 6,
+  "tripDaysDuration": 6,
   "notes": "Colosseum and Vatican tour",
   "rating": 4
 }
@@ -24,7 +24,7 @@ Respones:
   "id": 4,
   "destination": "Rome",
   "date": "2024-07-01",
-  "TripDaysDuration": 6,
+  "tripDaysDuration": 6,
   "notes": "Colosseum and Vatican tour",
   "rating": 4
 }

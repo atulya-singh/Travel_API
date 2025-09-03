@@ -5,9 +5,9 @@ app.use(express.json());
 
 
 let trips=[
-  {id:1, destination:"Paris", date:"2023-10-01", TripDaysDuration:7, notes:"Eiffel Tower visit",rating:5},
-  {id:2, destination:"New York", date:"2023-11-15", TripDaysDuration:5, notes:"Statue of Liberty tour",rating:5},
-  {id:3, destination:"Tokyo", date:"2024-01-20", TripDaysDuration:10, notes:"Cherry blossom season",rating:3}
+  {id:1, destination:"Paris", date:"2023-10-01", tripDaysDuration:7, notes:"Eiffel Tower visit",rating:5},
+  {id:2, destination:"New York", date:"2023-11-15", tripDaysDuration:5, notes:"Statue of Liberty tour",rating:5},
+  {id:3, destination:"Tokyo", date:"2024-01-20", tripDaysDuration:10, notes:"Cherry blossom season",rating:3}
 ];
 
 // Test route
@@ -16,21 +16,24 @@ app.get('/', (req, res) => {
 });
 
 app.post("/trips", (req, res) => {
-  const { destination, date, TripDaysDuration, notes, rating } = req.body;
+  const { destination, date, tripDaysDuration, notes, rating } = req.body;
 
   // Basic validation
-  if (!destination || !date || !TripDaysDuration || !rating) {
+  if (!destination || !date || !tripDaysDuration || !rating) {
     return res.status(400).json({ error: "Destination, date, duration, and rating are required" });
   }
   if (rating < 0 || rating > 5) {
     return res.status(400).json({ error: "Rating must be between 0 and 5" });
+  }
+  if (tripDaysDuration< 0) {
+    return res.status(400).json({ error: "TripDaysDuration must be greater than 0" });
   }
   // Create new trip object
   const newTrip = {
     id: trips.length + 1, // auto-increment ID
     destination,
     date,
-    TripDaysDuration,
+    tripDaysDuration,
     notes: notes || "", // optional
     rating
   };
@@ -76,20 +79,23 @@ app.get("/trips", (req, res) => {
   }
 
   // Extract fields from body
-  const { destination, date, TripDaysDuration, notes, rating } = req.body;
+  const { destination, date, tripDaysDuration, notes, rating } = req.body;
 
   // Basic validation
-  if (!destination || !date || !TripDaysDuration || rating === undefined) {
-    return res.status(400).json({ error: "Destination, date, duration, and rating are required" });
+  if (!destination || !date || !tripDaysDuration || rating === undefined) {
+    return res.status(400).json({ error: "Destination, date, tripDaysDuration, and rating are required" });
   }
   if (rating < 0 || rating > 5) {
     return res.status(400).json({ error: "Rating must be between 0 and 5" });
+  }
+  if (tripDaysDuration< 0) {
+    return res.status(400).json({ error: "TripDaysDuration must be greater than 0" });
   }
 
   // Update the trip object
   trip.destination = destination;
   trip.date = date;
-  trip.TripDaysDuration = TripDaysDuration;
+  trip.tripDaysDuration = tripDaysDuration;
   trip.notes = notes || "";
   trip.rating = rating;
 
