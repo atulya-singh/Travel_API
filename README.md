@@ -21,7 +21,7 @@ Content-Type: application/json
 {
   "destination": "Rome",
   "date": "2024-07-01",
-  "tripDaysDuration": 6,
+  "TripDaysDuration": 6,
   "notes": "Colosseum and Vatican tour",
   "rating": 4
 }
@@ -32,7 +32,7 @@ Content-Type: application/json
   "id": 4,
   "destination": "Rome",
   "date": "2024-07-01",
-  "tripDaysDuration": 6,
+  "TripDaysDuration": 6,
   "notes": "Colosseum and Vatican tour",
   "rating": 4
 }
