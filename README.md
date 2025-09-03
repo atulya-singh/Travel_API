@@ -1,3 +1,4 @@
+Overview of the Endpoints:
 # Travel_API
 REST API built for Travel Journal APP.Built with Node.js and Express, this project demonstrates core CRUD operations plus search and filtering capabilities.
 
@@ -27,7 +28,10 @@ Respones:
   "notes": "Colosseum and Vatican tour",
   "rating": 4
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> origin/master
